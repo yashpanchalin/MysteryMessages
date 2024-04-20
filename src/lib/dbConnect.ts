@@ -15,7 +15,7 @@ export default async function databaseConnect(): Promise<void> {
     }
 
     try {
-        const db = await mongoose.connect(process.env.MONOGODB_URI || '', {})
+        const db = await mongoose.connect(process.env.MONGODB_URI || '', {})
         //trying to connect to a database by providing database, either we're providing the empty string to fetch the error.
         connection.isConnected = db.connections[0].readyState
 
