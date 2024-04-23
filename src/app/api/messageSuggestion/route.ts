@@ -2,6 +2,7 @@ import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { NextResponse } from 'next/server';
 import { stat } from 'fs';
+require("dotenv").config()
  
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
