@@ -73,7 +73,7 @@ const page = () => {
   const onSumbit = async (data: z.infer<typeof signUpSchema>) => {
     setIsFormSubmitting(true);
     try {
-      const response = await axios.post(`api/sign-up`, data);
+      const response = await axios.post(`api/signup`, data);
       toast({
         title: "Sign up Sucessfully",
         description: response.data.message,
