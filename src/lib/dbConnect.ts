@@ -1,6 +1,5 @@
-import { log } from "console";
 import mongoose from "mongoose";
-import { connected } from "process";
+
 
 type ConnectionObject = {
     isConnected?: number

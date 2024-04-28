@@ -1,5 +1,4 @@
 "use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -10,7 +9,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { signUpSchema } from "@/Schemas/signUpSchema";
 import axios, { AxiosError } from "axios";
-import { APIResponse } from "@/types/APIRespnse";
+import { APIResponse } from "@/types/APIResponse";
 import { title } from "process";
 import { describe } from "node:test";
 import { Description } from "@radix-ui/react-toast";
@@ -28,7 +27,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
-const page = () => {
+const SignUp = () => {
   const [username, setUsername] = useState("");
   const [usernameAvailabilityMessage, setsernameAvailabilityMessage] =
     useState("");
@@ -190,4 +189,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SignUp;

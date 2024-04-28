@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { verifySchema } from "@/Schemas/verifySchema";
-import { APIResponse } from "@/types/APIRespnse";
+import { APIResponse } from "@/types/APIResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
 import { useParams } from "next/navigation";

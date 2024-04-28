@@ -1,19 +1,21 @@
 import { NextAuthOptions } from "next-auth";
-import Credentials, { CredentialsProvider } from "next-auth/providers/credentials";
+import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import databaseConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User";
+import { any } from "zod";
+
 
 export const authOpt:NextAuthOptions = {
     providers : [
-        CredentialsProvider({
+        Credentials({
             id : "credentials",
             name : "Credentials",
             credentials:{
                 email : {label : "Email" , type:"text"},
                 password : {label : "Password" , type : "password"},
             },
-            async auth (credentials:any):Promise<any> {
+            async authorize (credentials:any):Promise<any> {
                 await databaseConnect()
                 try {
                     const user = await UserModel.findOne({
@@ -23,7 +25,7 @@ export const authOpt:NextAuthOptions = {
                         ]
                     })
 
-                    if (user) {
+                    if (!user) {
                         throw new Error("No such User is found by given E-mail")
                     }
 
@@ -36,6 +38,8 @@ export const authOpt:NextAuthOptions = {
                         return user
                     } else{
                         throw new Error("Incorrect Password")
+                    } {
+                        throw new Error("No such User is found by given E-mail/Password");
                     }
 
                 } catch (err:any) {
