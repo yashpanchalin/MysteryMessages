@@ -112,7 +112,7 @@ const SignIn = () => {
             <p>
               Don&apos;t have an account?{""}
               <Link
-                href="/signup "
+                href="/signup"
                 className="text-blue-600 hover:text-blue-800"
               >
                 Sign up
